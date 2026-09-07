@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<!-- replace WEBSITE with the address where this site is being hosted -->
+<!-- If you host with a custom domain instead of the default GitHub Pages URL below, replace WEBSITE accordingly. -->
    <url>
-       <loc>WEBSITE</loc>
+       <loc>https://fifthnlpsymposium.github.io/nlpiuh</loc>
    </url>
    <url>
-       <loc>WEBSITE/registration</loc>
+       <loc>https://fifthnlpsymposium.github.io/nlpiuh/registration</loc>
    </url>
    <url>
-       <loc>WEBSITE/program</loc>
+       <loc>https://fifthnlpsymposium.github.io/nlpiuh/program</loc>
    </url>
    <url>
-       <loc>WEBSITE/directions</loc>
+       <loc>https://fifthnlpsymposium.github.io/nlpiuh/directions</loc>
    </url>
-</urlset> 
-
+   <url>
+       <loc>https://fifthnlpsymposium.github.io/nlpiuh/flyer</loc>
+   </url>
+</urlset>

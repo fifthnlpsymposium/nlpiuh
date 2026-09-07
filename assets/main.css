@@ -4,13 +4,18 @@
  * I've listed them here so that a user may easily
  * do a search-and-replace for these to change the site theme.
  *   'Roboto',sans-serif; Font for the title text
- *   'Roboto-Slab',serif; Font for the body text 
+ *   'Roboto-Slab',serif; Font for the body text
  *   #fafafa; Background color of the site
  *   #505050; Foreground (text) color of the site
- *   #52739e; Navy, "Template" in the logo, current page in navigation, special titles in the Program
- *   #b2132e; Reddish, "Conference" in the logo, hover color for links
- *   #813c54; Heading color, titles in the Program
+ *   #1b5e3f; Deep Green, "Symposium" in the logo, current page in navigation, special titles in the Program
+ *   #c9a227; Gold, "5th NLP" in the logo, hover color for links
+ *   #14532d; Heading color, titles in the Program
  *   #b8860b; Dark Goldenrod, color for links
+ *
+ * (Original template colors were #52739e navy, #b2132e red, #813c54 heading &mdash;
+ *  swapped here for a green/gold palette to match Isra University branding.
+ *  Search-and-replace the hex codes above again if you'd rather use exact
+ *  university brand colors once you have the official hex values.)
  */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab');
@@ -38,11 +43,11 @@ body{
 }
 
 a{color: #b8860b; text-decoration:none;}
-a.current{color: #52739e;}
-a.current:hover{color: #e82945;}
-a:hover{color: #b2132e;}
-a:active{color: #e82945;}
-h1,h2,h3,h4{clear:left; color: #813c54; margin:1.5em 0em 1em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
+a.current{color: #1b5e3f;}
+a.current:hover{color: #e0b83a;}
+a:hover{color: #c9a227;}
+a:active{color: #e0b83a;}
+h1,h2,h3,h4{clear:left; color: #14532d; margin:1.5em 0em 1em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
 h1{font-size:2.67em;}
 h2{font-size:2.00em;}
 h3{font-size:1.67em;}
@@ -77,13 +82,21 @@ th,td{
 }
 
 /* Website Banner */
-.banner {position: relative; font-family:'Roboto Slab',serif;}
+/* The banner image now has the symposium title, date and university branding baked
+ * into the artwork itself, so it's displayed on its own (no text overlay). The image
+ * scales to the full 1000px content width, whatever its native resolution is. */
+.banner {position: relative; font-family:'Roboto Slab',serif; line-height: 0;}
+.banner img {width: 100%; height: auto; display: block;}
+
+/* Unused now that the banner is a single branded image, but kept here in case you
+ * revert to a plain photo + text-overlay banner (add back the .top-left/.bottom-right
+ * <div>s in the HTML to use these again). */
 .top-left {font-size:5.33em; color: #505050; background: #fafafa; text-align: center; width: 1000px; height: 67px; position: absolute; padding: 36px 0 0 0; top: 0px;}
 .bottom-right {font-size:2.33em; color: #fafafa; line-height: 1.5em; width: auto; height: 100px; padding: 0px 27px 27px 0px; text-align: right; position: absolute; bottom: 0px; right: 0px; text-shadow: 0px 0px 6px #000000;}
 
-/* Conference Title Logo */
-.title1{color: #b2132e; text-shadow: 1px 1px 3px #c0c0c0;} 
-.title2{color: #52739e; text-shadow: 1px 1px 3px #c0c0c0;}
+/* Conference Title Logo (used only by the .top-left text overlay above) */
+.title1{color: #c9a227; text-shadow: 1px 1px 3px #c0c0c0;}
+.title2{color: #1b5e3f; text-shadow: 1px 1px 3px #c0c0c0;}
 .year{color: #505050; font-size:0.67em; font-weight: lighter;}
 
 /* Navigation Links (Home, Registration, etc) */
@@ -96,10 +109,10 @@ td.sponsor{white-space:nowrap; width:33%; text-align:center; vertical-align:midd
 td.sponsor img{width: 100%}
 
 /* The Table on the Program Page */
-td.room{padding: 4px 12px 4px 4px; width: 90%; vertical-align:bottom; font-size:1.67em; color: #52739e; height:32px;}
+td.room{padding: 4px 12px 4px 4px; width: 90%; vertical-align:bottom; font-size:1.67em; color: #1b5e3f; height:32px;}
 td.date{white-space:nowrap; width:130px; text-align:right; vertical-align:top; padding:4px 16px 0px 0px;}
-td.title{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.5em; color: #813c54; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0; }
-td.title-special{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.67em; color: #52739e; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
+td.title{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.5em; color: #14532d; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0; }
+td.title-special{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.67em; color: #1b5e3f; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
 td.speaker{padding: 4px 12px 4px 4px; font-style: italic; font-size:1em; max-height:999999px}
 td.abstract{padding: 4px 12px 12px 4px; font-size:1em; max-height:999999px}
 td.abstract img{display: block; margin: 4px auto 8px auto}
