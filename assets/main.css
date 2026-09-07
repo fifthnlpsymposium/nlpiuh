@@ -1,22 +1,31 @@
 /* main.css */
 
-/* These are the colors and fonts used throughout the webpage.
- * I've listed them here so that a user may easily
- * do a search-and-replace for these to change the site theme.
+/* Color system for the 5th NLP Symposium site, mixed from the banner (deep green + gold)
+ * and the flyer (navy blue + teal + purple + gold) artwork so the whole site reads as one
+ * family with those assets. Defined as CSS custom properties so they're easy to swap later
+ * if the official Isra University Department of Computer Science brand colors differ.
+ *
+ *   --navy    #14235e   Primary heading/brand color (from flyer "ISRA UNIVERSITY" wordmark)
+ *   --teal    #0f9488   Speakers / expert-talk accent (flyer's "Industry Expert Talks" box)
+ *   --purple  #6a2f8f   Panel discussion accent (flyer's "Panel Discussions" box)
+ *   --blue    #1c4fa0   General info accent (flyer's "Innovation & Networking" box)
+ *   --gold    #c9a227   Links, hover states, highlights (shared accent in banner + flyer)
+ *   --green   #1b5e3f   Deep green from the banner artwork, used sparingly for depth
+ *
  *   'Roboto',sans-serif; Font for the title text
  *   'Roboto-Slab',serif; Font for the body text
  *   #fafafa; Background color of the site
  *   #505050; Foreground (text) color of the site
- *   #1b5e3f; Deep Green, "Symposium" in the logo, current page in navigation, special titles in the Program
- *   #c9a227; Gold, "5th NLP" in the logo, hover color for links
- *   #14532d; Heading color, titles in the Program
- *   #b8860b; Dark Goldenrod, color for links
- *
- * (Original template colors were #52739e navy, #b2132e red, #813c54 heading &mdash;
- *  swapped here for a green/gold palette to match Isra University branding.
- *  Search-and-replace the hex codes above again if you'd rather use exact
- *  university brand colors once you have the official hex values.)
  */
+
+:root {
+    --navy: #14235e;
+    --teal: #0f9488;
+    --purple: #6a2f8f;
+    --blue: #1c4fa0;
+    --gold: #c9a227;
+    --green: #1b5e3f;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Slab');
 
@@ -33,7 +42,7 @@ body{
     background-color: #fafafa;
     background-size: cover;
     background-attachment: fixed;
-    color: #505050; 
+    color: #505050;
     text-align:left;
     font-family:'Roboto',sans-serif;
     font-size:1em;
@@ -42,20 +51,21 @@ body{
     width: 1000px;
 }
 
-a{color: #b8860b; text-decoration:none;}
-a.current{color: #1b5e3f;}
-a.current:hover{color: #e0b83a;}
-a:hover{color: #c9a227;}
-a:active{color: #e0b83a;}
-h1,h2,h3,h4{clear:left; color: #14532d; margin:1.5em 0em 1em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
+a{color: var(--gold); text-decoration:none;}
+a.current{color: var(--navy);}
+a.current:hover{color: var(--gold);}
+a:hover{color: var(--teal);}
+a:active{color: var(--gold);}
+h1,h2,h3,h4{clear:left; color: var(--navy); margin:1.5em 0em 1em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
 h1{font-size:2.67em;}
 h2{font-size:2.00em;}
 h3{font-size:1.67em;}
 h4{font-size:1.33em;}
 p{list-style:none; margin:24px auto 24px auto; padding:0px; width:900px; text-align:left;}
-li a, p a {text-decoration:underline; text-decoration-color:#b8860b;}
+li a, p a {text-decoration:underline; text-decoration-color:var(--gold);}
 ul{list-style:none; margin:24px auto 24px auto; padding:0px; width:800px; text-align:left;}
-ul li{list-style:none; margin:0px auto 0px auto; padding:0px; text-align:left;}
+ul li{list-style:none; margin:0px auto 8px auto; padding:0px 0px 0px 20px; text-align:left; position:relative;}
+ul li::before{content:"\25AA"; color:var(--gold); position:absolute; left:0;}
 i,em{font-style:italic;}
 b,strong{font-weight:bold;}
 sup{
@@ -95,13 +105,32 @@ th,td{
 .bottom-right {font-size:2.33em; color: #fafafa; line-height: 1.5em; width: auto; height: 100px; padding: 0px 27px 27px 0px; text-align: right; position: absolute; bottom: 0px; right: 0px; text-shadow: 0px 0px 6px #000000;}
 
 /* Conference Title Logo (used only by the .top-left text overlay above) */
-.title1{color: #c9a227; text-shadow: 1px 1px 3px #c0c0c0;}
-.title2{color: #1b5e3f; text-shadow: 1px 1px 3px #c0c0c0;}
+.title1{color: var(--gold); text-shadow: 1px 1px 3px #c0c0c0;}
+.title2{color: var(--navy); text-shadow: 1px 1px 3px #c0c0c0;}
 .year{color: #505050; font-size:0.67em; font-weight: lighter;}
 
 /* Navigation Links (Home, Registration, etc) */
 table.navigation{width:800px;}
 td.navigation{font-size:1.67em; white-space:nowrap; width:20%; text-align:center; vertical-align:middle; padding:0px 0px 0px 0px;}
+
+/* "Pill" section headings, styled after the flyer's rounded colored bars, so key sections
+ * (Speakers, Panelists, Program items) read as clearly branded blocks rather than plain
+ * text headers. Apply as a class on an h2/h3, e.g. <h2 class="section-heading teal">. */
+.section-heading{
+    display:inline-block;
+    color:#ffffff;
+    background:var(--navy);
+    padding:10px 28px;
+    border-radius:30px;
+    font-size:1.5em;
+    text-shadow:none;
+    box-shadow:0 2px 6px rgba(0,0,0,0.18);
+    margin:1.5em 0 0.75em 0;
+}
+.section-heading.teal{background:linear-gradient(90deg, var(--teal), #0b6b60);}
+.section-heading.purple{background:linear-gradient(90deg, var(--purple), #4a1f66);}
+.section-heading.blue{background:linear-gradient(90deg, var(--blue), var(--navy));}
+.section-heading.gold{background:linear-gradient(90deg, #a9821e, var(--gold));}
 
 /* Sponsor Images */
 table.sponsors{width:800px;}
@@ -109,19 +138,40 @@ td.sponsor{white-space:nowrap; width:33%; text-align:center; vertical-align:midd
 td.sponsor img{width: 100%}
 
 /* The Table on the Program Page */
-td.room{padding: 4px 12px 4px 4px; width: 90%; vertical-align:bottom; font-size:1.67em; color: #1b5e3f; height:32px;}
+td.room{padding: 4px 12px 4px 4px; width: 90%; vertical-align:bottom; font-size:1.67em; color: var(--navy); height:32px;}
 td.date{white-space:nowrap; width:130px; text-align:right; vertical-align:top; padding:4px 16px 0px 0px;}
-td.title{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.5em; color: #14532d; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0; }
-td.title-special{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.67em; color: #1b5e3f; height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
+td.title{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.5em; color: var(--navy); height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0; }
+td.title-special{padding: 4px 12px 4px 4px; width: 90%; vertical-align:top; font-size:1.67em; color: var(--navy); height:32px; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
 td.speaker{padding: 4px 12px 4px 4px; font-style: italic; font-size:1em; max-height:999999px}
 td.abstract{padding: 4px 12px 12px 4px; font-size:1em; max-height:999999px}
 td.abstract img{display: block; margin: 4px auto 8px auto}
 table.plenary{padding-top: 8px; background: #ffffff;}
 
+/* Panel discussion gets its own accent (purple, matching the flyer's panel-discussion box) */
+table.panel td.title-special{color: var(--purple);}
+
+/* Expert talks get a teal accent (matching the flyer's "Industry Expert Talks" box) */
+table.expert-talk td.title{color: var(--teal);}
+
 /* Registration and Directions iframes and Images */
 iframe.registration{display:block; margin:1em auto 2em auto; width:700px; height:1400px; border:none;}
 iframe.directions{display:block; margin:1em auto 2em auto; width:800px; height:400px; border:none;}
 img.center{display:block; width:67%; margin:1em auto 2em auto;}
+
+/* Call-to-action button (e.g. "Register Now" linking to the Google Form) */
+a.cta-button{
+    display:inline-block;
+    background:linear-gradient(90deg, var(--gold), #a9821e);
+    color:#ffffff;
+    font-weight:bold;
+    text-decoration:none;
+    padding:14px 36px;
+    border-radius:30px;
+    font-size:1.25em;
+    margin:1em 0 2em 0;
+    box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+a.cta-button:hover{background:linear-gradient(90deg, #a9821e, var(--gold)); color:#ffffff;}
 
 /* Flyer Images */
 table.flyers{width:800px;}
@@ -138,5 +188,5 @@ footer{font-size:0.875em; margin-top:12em; text-align:center;}
     td.date{font-size:1em; padding-top:0.5em;}
     td.navigation{font-size:1.5em; padding:0px 20px 0px 20px;}
     table.footer{font-size:0.33em;}
+    .section-heading{font-size:2em;}
 }
-
